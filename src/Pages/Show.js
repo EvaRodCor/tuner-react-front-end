@@ -1,6 +1,10 @@
+import SongDetails from "../Components/SongDetails";
+
 const Show = () => {
     return (
-        <div>
+        <div className="Show">
+            <h2>Show</h2>
+            <SongDetails/>
         </div>
         )
     }
