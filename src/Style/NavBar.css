@@ -1,0 +1,30 @@
+nav {
+    background: black;
+    height: 80px;
+    display:flex;
+    padding: 0.5rem calc((100vw - 1000px) / 2);
+    z-index: 10;
+}
+
+.button {
+font-size: 18px;
+font-family:Arial, Helvetica, sans-serif; 
+}
+
+img {
+width: 140px;
+height: 100px;
+position:absolute;
+left:0;
+top:0;  
+}
+
+div.menu {
+    display: grid;
+    grid-template-columns: repeat(5, auto);
+    grid-gap: 10px;
+    text-align: center;
+    width: 90vw;
+    justify-content: end;
+    margin-right: 2rem;
+}

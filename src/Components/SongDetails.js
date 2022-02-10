@@ -33,7 +33,7 @@ return (
     <h4>Song Name: {song.name}</h4>
     <p>{song.time} mins</p>
     <p>Artist: {song.artist}</p>
-    <p>{song.is_favorite}</p>
+    <p>Favorite: {song.is_favorite ? "⭐️" : "❌"}</p>
     <div className="showNavigation">
         <div>
             <Link to="/songs">

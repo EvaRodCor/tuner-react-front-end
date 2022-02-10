@@ -10,7 +10,7 @@ let navigate = useNavigate();
 
 const addSong = (newSong) => {
     axios
-    .post(`${API}/songs/new`, newSong)
+    .post(`${API}/songs/`, newSong)
     .then(
         () => {
         navigate(`/songs`);
@@ -22,8 +22,9 @@ const addSong = (newSong) => {
 
 const [song, setSong] = useState({
     name: "",
-    time: "",
     artist: "",
+    album:"",
+    time: "",
     is_favorite: false,
 });
 
@@ -48,7 +49,7 @@ return (
         value={song.name}
         type="text"
         onChange={handleTextChange}
-        placeholder="Name of Anime"
+        placeholder="Name of Song"
         required
         />
         <label htmlFor="artist">Artist:</label>
@@ -59,7 +60,32 @@ return (
         onChange={handleTextChange}
         placeholder="Artist name"
         />
-
+        <label htmlFor="album">Album:</label>
+        <input
+        id="album"
+        value={song.album}
+        type="text"
+        onChange={handleTextChange}
+        placeholder="Album"
+        required
+        />
+        <label htmlFor="time">Time:</label>
+        <input
+        id="time"
+        value={song.time}
+        type="text"
+        onChange={handleTextChange}
+        placeholder="Time of Song"
+        required
+        />
+        <label htmlFor="is_favorite">is_favorite:</label>
+        <input
+        id="is_favorite"
+        value={song.is_favorite}
+        type="checkbox"
+        onChange={handleCheckboxChange}
+        required
+        />
         <br />
         <input type="submit" />
     </form>

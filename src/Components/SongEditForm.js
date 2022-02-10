@@ -15,7 +15,7 @@ const [song, setSong] = useState({
 
 const updateSong = (updatedSong) => {
     axios
-    .put(`${API}/anime/${id}`, updatedSong)
+    .put(`${API}/songs/${id}`, updatedSong)
     .then(
         () => {
         navigate(`/songs/${id}`);
@@ -27,6 +27,10 @@ const updateSong = (updatedSong) => {
 
 const handleTextChange = (event) => {
     setSong({ ...song, [event.target.id]: event.target.value });
+};
+
+const handleCheckboxChange = () => {
+    setSong({ ...song, is_favorite: !song.is_favorite });
 };
 
 useEffect(() => {
@@ -44,25 +48,50 @@ const handleSubmit = (event) => {
 return (
     <div className="Edit">
     <form onSubmit={handleSubmit}>
-        <label htmlFor="name">Name:</label>
+    <label htmlFor="name">Name:</label>
         <input
         id="name"
         value={song.name}
         type="text"
         onChange={handleTextChange}
-        placeholder="Name of Website"
+        placeholder="Name of Song"
         required
         />
-        <label htmlFor="release">Artist:</label>
+        <label htmlFor="artist">Artist:</label>
         <input
         id="artist"
         type="text"
         value={song.artist}
         onChange={handleTextChange}
+        placeholder="Artist name"
         />
-
-        <br />
-
+        <label htmlFor="album">Album:</label>
+        <input
+        id="album"
+        value={song.album}
+        type="text"
+        onChange={handleTextChange}
+        placeholder="Album"
+        required
+        />
+        <label htmlFor="time">Time:</label>
+        <input
+        id="time"
+        value={song.time}
+        type="text"
+        onChange={handleTextChange}
+        placeholder="Time of Song"
+        required
+        />
+        <label htmlFor="is_favorite">is_favorite:</label>
+        <input
+        id="is_favorite"
+        value={song.is_favorite}
+        type="checkbox"
+        onChange={handleCheckboxChange}
+        required
+        />
+        <br/>
         <input type="submit" />
     </form>
     <Link to={`/songs/${id}`}>
